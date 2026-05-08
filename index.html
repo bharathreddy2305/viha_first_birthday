@@ -647,7 +647,7 @@
     </div>
 
     <!-- MEMORY BUTTONS SECTION -->
-    <section style="min-height:auto; padding-top:20px; padding-bottom:20px;">
+<section style="min-height:auto; padding-top:20px; padding-bottom:20px;">
 
     <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; margin-bottom:25px;">
 
@@ -657,7 +657,7 @@
             📸 Month Wise Photos
         </button>
 
-        <button onclick="toggleSection('memory-gallery')"
+        <button onclick="openMemoryPopup()"
             class="btn-premium"
             style="width:auto; padding:12px 20px; border-radius:30px;">
             ✨ Viha Memories
@@ -726,7 +726,82 @@
 
             <div class="memory-card">
                 <img src="./viha_web_photos/month11.jpg">
-    </section>
+                <p>11th Month</p>
+            </div>
+
+            <div class="memory-card">
+                <img src="./viha_web_photos/month12.jpg">
+                <p>12th Month</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FULLSCREEN MEMORY POPUP -->
+<div id="memory-popup"
+     style="display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.88);
+            z-index:99999;
+            overflow-y:auto;
+            padding:30px 15px;">
+
+    <!-- CLOSE BUTTON -->
+    <div style="text-align:right; max-width:1200px; margin:auto; margin-bottom:20px;">
+        <button onclick="closeMemoryPopup()"
+                style="background:white;
+                       border:none;
+                       width:45px;
+                       height:45px;
+                       border-radius:50%;
+                       font-size:1.5rem;
+                       cursor:pointer;
+                       font-weight:bold;">
+            ×
+        </button>
+    </div>
+
+    <h1 style="font-family:'Great Vibes';
+               font-size:3.5rem;
+               color:white;
+               text-align:center;
+               margin-bottom:35px;">
+        Viha Memories ✨
+    </h1>
+
+    <div class="memory-grid" style="max-width:1300px; margin:auto;">
+
+        <div class="memory-card"><img src="./viha_web_photos/memory1.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory2.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory3.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory4.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory5.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory6.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory7.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory8.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory9.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory10.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory11.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory12.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory13.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory14.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory15.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory16.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory17.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory18.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory19.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory20.jpg"></div>
+
+    </div>
+
+</div>
 
     <!-- SECTION 5: Itinerary Timeline Schedule Card -->
     <section>
@@ -1118,6 +1193,17 @@
         section.style.display = 'none';
     }
 }
+
+function openMemoryPopup() {
+    document.getElementById('memory-popup').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMemoryPopup() {
+    document.getElementById('memory-popup').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+        
         initAmbientBubbles();
     </script>
 </body>
