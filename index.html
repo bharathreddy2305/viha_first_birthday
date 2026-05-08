@@ -387,7 +387,17 @@
             text-align: center; position: relative;
         }
         #milestone-modal.modal-open .modal-body { transform: scale(1); }
-        .modal-image { width: 100%; height: 220px; border-radius: 16px; background-size: cover; background-position: center; margin-bottom: 15px; border: 1px solid #f5ebeb; }
+        .modal-image {
+    width: 100%;
+    height: 320px;
+    border-radius: 16px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 15px;
+    border: 1px solid #f5ebeb;
+    background-color: #fff;
+}
 
         /* Timelines layout setup */
         .day-divider { display: flex; align-items: center; width: 100%; gap: 12px; margin-bottom: 25px; max-width: 350px; }
@@ -1099,7 +1109,7 @@
             {
                 title: "👣 First Step",
                 desc: "Took her very first brave independent steps at 11 months old! Falling down only to stand up with the biggest triumphant laugh.",
-                img: "./viha_web_photos/TPM08007.JPG"
+                img: "./viha_web_photos/step.png"
             }
         ];
 
