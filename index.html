@@ -459,6 +459,66 @@
     color:#666;
 }
 
+        /* FULLSCREEN IMAGE VIEWER */
+#image-viewer {
+    display:none;
+    position:fixed;
+    z-index:999999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.92);
+    backdrop-filter:blur(8px);
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    padding:20px;
+}
+
+#viewer-img {
+    max-width:95%;
+    max-height:80vh;
+    border-radius:18px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    object-fit:contain;
+}
+
+.viewer-controls {
+    position:absolute;
+    width:100%;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    justify-content:space-between;
+    padding:0 20px;
+}
+
+.viewer-btn {
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:none;
+    background:rgba(255,255,255,0.2);
+    color:white;
+    font-size:2rem;
+    cursor:pointer;
+    backdrop-filter:blur(4px);
+}
+
+#viewer-close {
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    font-size:1.8rem;
+    cursor:pointer;
+    font-weight:bold;
+}
         
     </style>
     
@@ -685,62 +745,62 @@
         <div class="memory-grid">
 
             <div class="memory-card">
-                <img src="./viha_web_photos/month1.jpg">
+                <div class="memory-card"><img src="./viha_web_photos/month1.jpg" onclick="openImageViewer(this.src)"></div>
                 <p>1st Month</p>
             </div>
 
             <div class="memory-card">
-                <img src="./viha_web_photos/month2.jpg">
+                <div class="memory-card"><img src="./viha_web_photos/month2.jpg" onclick="openImageViewer(this.src)"></div>
                 <p>2nd Month</p>
             </div>
 
             <div class="memory-card">
-                <img src="./viha_web_photos/month3.jpg">
+                <div class="memory-card"><img src="./viha_web_photos/month3.jpg" onclick="openImageViewer(this.src)"></div>
                 <p>3rd Month</p>
             </div>
 
             <div class="memory-card">
-                <img src="./viha_web_photos/month4.jpg">
+                <div class="memory-card"><img src="./viha_web_photos/month4.jpg" onclick="openImageViewer(this.src)"></div>
                 <p>4th Month</p>
             </div>
 
             <div class="memory-card">
-                <img src="./viha_web_photos/month5.jpg">
+                <div class="memory-card"><img src="./viha_web_photos/month5.jpg" onclick="openImageViewer(this.src)"></div>
                 <p>5th Month</p>
             </div>
 
             <div class="memory-card">
-                <img src="./viha_web_photos/month6.jpg">
+                <div class="memory-card"><img src="./viha_web_photos/month6.jpg" onclick="openImageViewer(this.src)"></div>
                 <p>6th Month</p>
             </div>
 
             <div class="memory-card">
-                <img src="./viha_web_photos/month7.jpg">
+                <div class="memory-card"><img src="./viha_web_photos/month7.jpg" onclick="openImageViewer(this.src)"></div>
                 <p>7th Month</p>
             </div>
 
             <div class="memory-card">
-                <img src="./viha_web_photos/month8.jpg">
+                <div class="memory-card"><img src="./viha_web_photos/month8.jpg" onclick="openImageViewer(this.src)"></div>
                 <p>8th Month</p>
             </div>
 
             <div class="memory-card">
-                <img src="./viha_web_photos/month9.jpg">
+                <div class="memory-card"><img src="./viha_web_photos/month9.jpg" onclick="openImageViewer(this.src)"></div>
                 <p>9th Month</p>
             </div>
 
             <div class="memory-card">
-                <img src="./viha_web_photos/month10.jpg">
+                <div class="memory-card"><img src="./viha_web_photos/month10.jpg" onclick="openImageViewer(this.src)"></div>
                 <p>10th Month</p>
             </div>
 
             <div class="memory-card">
-                <img src="./viha_web_photos/month11.jpg">
+                <div class="memory-card"><img src="./viha_web_photos/month11.jpg" onclick="openImageViewer(this.src)"></div>
                 <p>11th Month</p>
             </div>
 
             <div class="memory-card">
-                <img src="./viha_web_photos/month12.jpg">
+                <div class="memory-card"><img src="./viha_web_photos/month12.jpg" onclick="openImageViewer(this.src)"></div>
                 <p>12th Month</p>
             </div>
 
@@ -788,26 +848,26 @@
 
     <div class="memory-grid" style="max-width:1300px; margin:auto;">
 
-        <div class="memory-card"><img src="./viha_web_photos/memory1.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory2.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory3.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory4.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory5.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory6.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory7.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory8.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory9.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory10.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory11.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory12.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory13.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory14.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory15.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory16.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory17.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory18.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory19.jpg"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory20.jpg"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory1.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory2.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory3.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory4.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory5.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory6.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory7.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory8.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory9.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory10.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory11.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory12.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory13.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory14.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory15.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory16.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory17.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory18.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory19.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/memory20.jpg" onclick="openImageViewer(this.src)"></div>
 
     </div>
 
@@ -1213,8 +1273,85 @@ function closeMemoryPopup() {
     document.getElementById('memory-popup').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
+
+let currentGalleryImages = [];
+let currentImageIndex = 0;
+
+function collectGalleryImages() {
+    currentGalleryImages = Array.from(document.querySelectorAll('.memory-card img')).map(img => img.src);
+}
+
+function openImageViewer(src) {
+    collectGalleryImages();
+
+    currentImageIndex = currentGalleryImages.indexOf(src);
+
+    document.getElementById('image-viewer').style.display = 'flex';
+    document.getElementById('viewer-img').src = src;
+
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageViewer() {
+    document.getElementById('image-viewer').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function nextImage() {
+    currentImageIndex++;
+
+    if(currentImageIndex >= currentGalleryImages.length) {
+        currentImageIndex = 0;
+    }
+
+    document.getElementById('viewer-img').src = currentGalleryImages[currentImageIndex];
+}
+
+function prevImage() {
+    currentImageIndex--;
+
+    if(currentImageIndex < 0) {
+        currentImageIndex = currentGalleryImages.length - 1;
+    }
+
+    document.getElementById('viewer-img').src = currentGalleryImages[currentImageIndex];
+}
+
+/* MOBILE SWIPE SUPPORT */
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.getElementById('image-viewer').addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.getElementById('image-viewer').addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+
+    if(touchStartX - touchEndX > 50) {
+        nextImage();
+    }
+
+    if(touchEndX - touchStartX > 50) {
+        prevImage();
+    }
+});
         
         initAmbientBubbles();
     </script>
+
+<!-- FULLSCREEN IMAGE VIEWER -->
+<div id="image-viewer">
+
+    <button id="viewer-close" onclick="closeImageViewer()">×</button>
+
+    <div class="viewer-controls">
+        <button class="viewer-btn" onclick="prevImage()">❮</button>
+        <button class="viewer-btn" onclick="nextImage()">❯</button>
+    </div>
+
+    <img id="viewer-img" src="">
+</div>
+    
 </body>
 </html>
