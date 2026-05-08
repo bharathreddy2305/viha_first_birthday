@@ -413,7 +413,45 @@
 
         #music-control { position: fixed; bottom: 20px; right: 20px; width: 42px; height: 42px; background: white; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; z-index: 999; cursor: pointer; border: 1px solid rgba(255,183,178,0.4); }
         #confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10000; }
+
+        .memory-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+    width:100%;
+    padding:10px;
+}
+
+.memory-card {
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    padding:10px;
+    transition:0.3s ease;
+}
+
+.memory-card:hover {
+    transform:translateY(-5px) scale(1.02);
+}
+
+.memory-card img {
+    width:100%;
+    height:240px;
+    object-fit:cover;
+    border-radius:14px;
+}
+
+.memory-card p {
+    margin-top:10px;
+    font-family:'Quicksand';
+    font-weight:700;
+    color:#666;
+}
+
+        
     </style>
+    
 </head>
 <body>
 
@@ -608,6 +646,88 @@
         <div class="photo-caption">Giggles and Sparkly Eyes</div>
     </div>
 
+    <!-- MEMORY BUTTONS SECTION -->
+    <section style="min-height:auto; padding-top:20px; padding-bottom:20px;">
+
+    <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; margin-bottom:25px;">
+
+        <button onclick="toggleSection('month-gallery')"
+            class="btn-premium"
+            style="width:auto; padding:12px 20px; border-radius:30px;">
+            📸 Month Wise Photos
+        </button>
+
+        <button onclick="toggleSection('memory-gallery')"
+            class="btn-premium"
+            style="width:auto; padding:12px 20px; border-radius:30px;">
+            ✨ Viha Memories
+        </button>
+
+    </div>
+
+    <!-- MONTH WISE GALLERY -->
+    <div id="month-gallery" style="display:none; width:100%; max-width:1100px; margin:auto;">
+
+        <h2 style="font-family:'Great Vibes'; font-size:3rem; color:var(--blush-dark); margin-bottom:25px;">
+            Viha Month Wise Journey
+        </h2>
+
+        <div class="memory-grid">
+
+            <div class="memory-card">
+                <img src="./viha_web_photos/month1.jpg">
+                <p>1st Month</p>
+            </div>
+
+            <div class="memory-card">
+                <img src="./viha_web_photos/month2.jpg">
+                <p>2nd Month</p>
+            </div>
+
+            <div class="memory-card">
+                <img src="./viha_web_photos/month3.jpg">
+                <p>3rd Month</p>
+            </div>
+
+            <div class="memory-card">
+                <img src="./viha_web_photos/month4.jpg">
+                <p>4th Month</p>
+            </div>
+
+            <div class="memory-card">
+                <img src="./viha_web_photos/month5.jpg">
+                <p>5th Month</p>
+            </div>
+
+            <div class="memory-card">
+                <img src="./viha_web_photos/month6.jpg">
+                <p>6th Month</p>
+            </div>
+
+            <div class="memory-card">
+                <img src="./viha_web_photos/month7.jpg">
+                <p>7th Month</p>
+            </div>
+
+            <div class="memory-card">
+                <img src="./viha_web_photos/month8.jpg">
+                <p>8th Month</p>
+            </div>
+
+            <div class="memory-card">
+                <img src="./viha_web_photos/month9.jpg">
+                <p>9th Month</p>
+            </div>
+
+            <div class="memory-card">
+                <img src="./viha_web_photos/month10.jpg">
+                <p>10th Month</p>
+            </div>
+
+            <div class="memory-card">
+                <img src="./viha_web_photos/month11.jpg">
+    </section>
+
     <!-- SECTION 5: Itinerary Timeline Schedule Card -->
     <section>
         <div class="day-divider">
@@ -621,7 +741,7 @@
             <div class="flex items-start gap-3">
                 <div class="text-2xl p-2 bg-[#fff2f2] rounded-xl">👑</div>
                 <div>
-                    <p style="font-size: 0.7rem; font-family:'Montserrat'; color: var(--gold); font-weight: 600; margin: 0;">04:30 PM</p>
+                    <p style="font-size: 0.7rem; font-family:'Montserrat'; color: var(--gold); font-weight: 600; margin: 0;">06:30 PM</p>
                     <h3 style="font-family: 'Quicksand'; font-weight: 600; font-size: 1.05rem; color: var(--text-dark); margin: 1px 0;">Princess Welcoming</h3>
                     <p style="font-size: 0.85rem; color: var(--text-light); font-style: italic;">Step into a fairytale kingdom of balloons and pure wonderland joy.</p>
                 </div>
@@ -632,7 +752,7 @@
             <div class="flex items-start gap-3">
                 <div class="text-2xl p-2 bg-[#fff9eb] rounded-xl">🎂</div>
                 <div>
-                    <p style="font-size: 0.7rem; font-family:'Montserrat'; color: var(--gold); font-weight: 600; margin: 0;">05:30 PM</p>
+                    <p style="font-size: 0.7rem; font-family:'Montserrat'; color: var(--gold); font-weight: 600; margin: 0;">07:00 PM</p>
                     <h3 style="font-family: 'Quicksand'; font-weight: 600; font-size: 1.05rem; color: var(--text-dark); margin: 1px 0;">The Grand Cake Cutting</h3>
                     <p style="font-size: 0.85rem; color: var(--text-light); font-style: italic;">Gather round as sweet Viha blows her very first birthday candle!</p>
                 </div>
@@ -643,8 +763,8 @@
             <div class="flex items-start gap-3">
                 <div class="text-2xl p-2 bg-[#edf7ed] rounded-xl">🪄</div>
                 <div>
-                    <p style="font-size: 0.7rem; font-family:'Montserrat'; color: var(--gold); font-weight: 600; margin: 0;">06:10 PM</p>
-                    <h3 style="font-family: 'Quicksand'; font-weight: 600; font-size: 1.05rem; color: var(--text-dark); margin: 1px 0;">Magic Show & Games</h3>
+                    <p style="font-size: 0.7rem; font-family:'Montserrat'; color: var(--gold); font-weight: 600; margin: 0;">08:00 PM</p>
+                    <h3 style="font-family: 'Quicksand'; font-weight: 600; font-size: 1.05rem; color: var(--text-dark); margin: 1px 0;">PhotoShoot with Viha</h3>
                     <p style="font-size: 0.85rem; color: var(--text-light); font-style: italic;">Spellbinding acts and cute cheerful games for family and kids.</p>
                 </div>
             </div>
@@ -654,7 +774,7 @@
             <div class="flex items-start gap-3">
                 <div class="text-2xl p-2 bg-[#f3effa] rounded-xl">🍲</div>
                 <div>
-                    <p style="font-size: 0.7rem; font-family:'Montserrat'; color: var(--gold); font-weight: 600; margin: 0;">07:30 PM ONWARDS</p>
+                    <p style="font-size: 0.7rem; font-family:'Montserrat'; color: var(--gold); font-weight: 600; margin: 0;">08:30 PM ONWARDS</p>
                     <h3 style="font-family: 'Quicksand'; font-weight: 600; font-size: 1.05rem; color: var(--text-dark); margin: 1px 0;">Royal Grand Feast</h3>
                     <p style="font-size: 0.85rem; color: var(--text-light); font-style: italic;">A curated premium delicious dinner spread to honor your presence.</p>
                 </div>
@@ -988,6 +1108,16 @@
                 container.appendChild(b);
             }
         }
+        function toggleSection(id) {
+    const section = document.getElementById(id);
+
+    if(section.style.display === 'none' || section.style.display === '') {
+        section.style.display = 'block';
+        section.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        section.style.display = 'none';
+    }
+}
         initAmbientBubbles();
     </script>
 </body>
