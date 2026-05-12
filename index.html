@@ -836,8 +836,8 @@
     </div>
 
     <audio id="welcome-voice" preload="auto">
-        <source src="./viha_web_photos/AUD-20260512-WA0040.opus" type="audio/mpeg">
-    </audio>
+        <source src="./viha_web_photos/AUD-20260512-WA0040.opus" type="audio/ogg; codecs=opus">
+        <source src="./viha_web_photos/AUD-20260512-WA0040.mp3" type="audio/mpeg"> </audio>
 
     <button class="secret-surprise-btn" onclick="openSurprise()">🎁 Tap for Surprise</button>
 
@@ -856,7 +856,7 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // --- FIREBASE LIVE BACKEND CONFIGURATION (PRE-FILLED) ---
+        // --- FIREBASE LIVE BACKEND CONFIGURATION ---
         const firebaseConfig = {
             apiKey: "AIzaSyAwo0NqpAwjkFofwteEppQN5k5DUFqM7-Y",
             authDomain: "viha-invitation.firebaseapp.com",
@@ -1137,14 +1137,38 @@
             if(touchEndX - touchStartX > 50) { prevImage(); }
         });
 
+        // --- UPDATED FAIL-SAFE GREETING TRIGGER ---
         function startVoiceGreeting() {
             const voice = document.getElementById('welcome-voice');
-            voice.currentTime = 0;
-            voice.play().catch(() => { console.log("Voice autoplay blocked until user interaction."); });
-            document.getElementById('voice-popup').style.display = 'none';
-            if (typeof triggerConfettiBurst === "function") { triggerConfettiBurst(); }
-            if (typeof girlBubble !== "undefined") {
-                setTimeout(() => { girlBubble.innerText = "Welcome to Viha's world! 🎀"; girlBubble.classList.add('bubble-visible'); }, 1200);
+            const voicePopup = document.getElementById('voice-popup');
+            const girlBubble = document.getElementById('girl-bubble');
+
+            // 1. Instantly hide popup first to guarantee user flow never stalls
+            if (voicePopup) {
+                voicePopup.style.display = 'none';
+            }
+
+            // 2. Safely attempt to trigger audio stream without catching promise rejections
+            if (voice) {
+                voice.currentTime = 0;
+                const playPromise = voice.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(err => {
+                        console.warn("Audio skipped safely pipeline:", err);
+                    });
+                }
+            }
+
+            // 3. Complete visual loading pipeline
+            if (typeof triggerConfettiBurst === "function") {
+                triggerConfettiBurst();
+            }
+
+            if (girlBubble) {
+                setTimeout(() => { 
+                    girlBubble.innerText = "Welcome to Viha's world! 🎀"; 
+                    girlBubble.classList.add('bubble-visible'); 
+                }, 1200);
             }
         }
 
