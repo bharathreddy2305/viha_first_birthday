@@ -1688,7 +1688,7 @@ function closeSurprise() {
     document.body.style.overflow = 'auto';
 }
 
-var timelineMemories = [
+window.timelineMemories = [
     {
         title: "1 Month of Magic 🌙",
         img: "./viha_web_photos/1_M.jpeg",
@@ -1716,14 +1716,13 @@ var timelineMemories = [
     }
 ];
 
-function openTimelineMemory(index) {
+window.openTimelineMemory = function(index) {
+    var memory = window.timelineMemories[index];
 
-    if (!timelineMemories || !timelineMemories[index]) {
-        console.log("Timeline memory not found");
+    if (!memory) {
+        console.log("Timeline memory not found for index:", index);
         return;
     }
-
-    var memory = timelineMemories[index];
 
     document.getElementById('timeline-popup-img').src = memory.img;
     document.getElementById('timeline-popup-title').innerText = memory.title;
@@ -1735,12 +1734,12 @@ function openTimelineMemory(index) {
     if (typeof triggerConfettiBurst === "function") {
         triggerConfettiBurst();
     }
-}
+};
 
-function closeTimelineMemory() {
+window.closeTimelineMemory = function() {
     document.getElementById('timeline-popup').style.display = 'none';
     document.body.style.overflow = 'auto';
-}
+};
         
         initAmbientBubbles();
     </script>
