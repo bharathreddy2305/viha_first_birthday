@@ -1843,6 +1843,61 @@ window.closeTimelineMemory = function() {
     </div>
 
 </div>
+
+<script>
+window.timelineMemories = [
+    {
+        title: "1 Month of Magic 🌙",
+        img: "./viha_web_photos/1_M.jpeg",
+        desc: "Our tiny moonbeam arrived and filled every corner of our home with warmth, wonder, and love."
+    },
+    {
+        title: "3 Months of Smiles 😊",
+        img: "./viha_web_photos/3_M.jpeg",
+        desc: "Tiny smiles turned into sweet giggles, and every day became brighter with Viha's happiness."
+    },
+    {
+        title: "6 Months of Sparkle 🎀",
+        img: "./viha_web_photos/6_M.jpeg",
+        desc: "Half a year of cuddles, curiosity, and the cutest expressions that made our hearts melt."
+    },
+    {
+        title: "9 Months of Joy 🧸",
+        img: "./viha_web_photos/9_M.jpeg",
+        desc: "A playful little star, exploring the world with sparkling eyes and endless energy."
+    },
+    {
+        title: "One Year of Love 🎂",
+        img: "./viha_web_photos/12_M.jpeg",
+        desc: "From tiny steps to big smiles, Viha's first year has been our most beautiful blessing."
+    }
+];
+
+window.openTimelineMemory = function(index) {
+    var memory = window.timelineMemories[index];
+
+    if (!memory) {
+        alert("Timeline memory not found for index: " + index);
+        return;
+    }
+
+    document.getElementById('timeline-popup-img').src = memory.img;
+    document.getElementById('timeline-popup-title').innerText = memory.title;
+    document.getElementById('timeline-popup-desc').innerText = memory.desc;
+
+    document.getElementById('timeline-popup').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    if (typeof triggerConfettiBurst === "function") {
+        triggerConfettiBurst();
+    }
+};
+
+window.closeTimelineMemory = function() {
+    document.getElementById('timeline-popup').style.display = 'none';
+    document.body.style.overflow = 'auto';
+};
+</script>
     
 </body>
 </html>
