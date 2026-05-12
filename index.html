@@ -1688,7 +1688,7 @@ function closeSurprise() {
     document.body.style.overflow = 'auto';
 }
 
-const timelineMemories = [
+var timelineMemories = [
     {
         title: "1 Month of Magic 🌙",
         img: "./viha_web_photos/1_M.jpeg",
@@ -1717,19 +1717,19 @@ const timelineMemories = [
 ];
 
 function openTimelineMemory(index) {
-    alert("Timeline clicked");
-    const memory = timelineMemories[index];
 
-    const popup = document.getElementById('timeline-popup');
-    const img = document.getElementById('timeline-popup-img');
-    const title = document.getElementById('timeline-popup-title');
-    const desc = document.getElementById('timeline-popup-desc');
+    if (!timelineMemories || !timelineMemories[index]) {
+        console.log("Timeline memory not found");
+        return;
+    }
 
-    img.src = memory.img;
-    title.innerText = memory.title;
-    desc.innerText = memory.desc;
+    var memory = timelineMemories[index];
 
-    popup.style.display = 'flex';
+    document.getElementById('timeline-popup-img').src = memory.img;
+    document.getElementById('timeline-popup-title').innerText = memory.title;
+    document.getElementById('timeline-popup-desc').innerText = memory.desc;
+
+    document.getElementById('timeline-popup').style.display = 'flex';
     document.body.style.overflow = 'hidden';
 
     if (typeof triggerConfettiBurst === "function") {
