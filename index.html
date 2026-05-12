@@ -636,7 +636,7 @@
                 <canvas id="y-can" class="scratch-canvas" width="95" height="135"></canvas>
             </div>
         </div>
-        <div class="mt-5 text-xs text-stone-400 font-['Quicksand']">✨ Saturday Evening Party ✨</div>
+        <div class="mt-5 text-xs text-stone-400 font-['Quicksand']">✨ Sunday Evening Party ✨</div>
     </section>
 
     <!-- PHOTO INSERT 2 -->
@@ -721,7 +721,7 @@
 
     <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; margin-bottom:25px;">
 
-        <button onclick="toggleSection('month-gallery')"
+        <button onclick="openMonthPopup()"
             class="btn-premium"
             style="width:auto; padding:12px 20px; border-radius:30px;">
             📸 Month Wise Photos
@@ -736,77 +736,106 @@
     </div>
 
     <!-- MONTH WISE GALLERY -->
-    <div id="month-gallery" style="display:none; width:100%; max-width:1100px; margin:auto;">
+    <!-- FULLSCREEN MONTH WISE POPUP -->
+<div id="month-popup"
+     style="display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.88);
+            z-index:99999;
+            overflow-y:auto;
+            padding:30px 15px;">
 
-        <h2 style="font-family:'Great Vibes'; font-size:3rem; color:var(--blush-dark); margin-bottom:25px;">
-            Viha Month Wise Journey
-        </h2>
+    <!-- CLOSE BUTTON -->
+    <div style="text-align:right; max-width:1200px; margin:auto; margin-bottom:20px;">
+        <button onclick="closeMonthPopup()"
+                style="background:white;
+                       border:none;
+                       width:45px;
+                       height:45px;
+                       border-radius:50%;
+                       font-size:1.5rem;
+                       cursor:pointer;
+                       font-weight:bold;">
+            ×
+        </button>
+    </div>
 
-        <div class="memory-grid">
+    <h1 style="font-family:'Great Vibes';
+               font-size:3.5rem;
+               color:white;
+               text-align:center;
+               margin-bottom:35px;">
+        Viha Month Wise Journey 📸
+    </h1>
 
-            <div class="memory-card">
-                <div class="memory-card"><img src="./viha_web_photos/1_M.jpeg" onclick="openImageViewer(this.src)"></div>
-                <p>1st Month</p>
-            </div>
+    <div class="memory-grid" style="max-width:1300px; margin:auto;">
 
-            <div class="memory-card">
-                <div class="memory-card"><img src="./viha_web_photos/2_M.jpeg" onclick="openImageViewer(this.src)"></div>
-                <p>2nd Month</p>
-            </div>
+        <div class="memory-card">
+            <img src="./viha_web_photos/1_M.jpg" onclick="openImageViewer(this.src)">
+            <p>1st Month</p>
+        </div>
 
-            <div class="memory-card">
-                <div class="memory-card"><img src="./viha_web_photos/3_M.jpeg" onclick="openImageViewer(this.src)"></div>
-                <p>3rd Month</p>
-            </div>
+        <div class="memory-card">
+            <img src="./viha_web_photos/2_M.jpg" onclick="openImageViewer(this.src)">
+            <p>2nd Month</p>
+        </div>
 
-            <div class="memory-card">
-                <div class="memory-card"><img src="./viha_web_photos/4_M.jpeg" onclick="openImageViewer(this.src)"></div>
-                <p>4th Month</p>
-            </div>
+        <div class="memory-card">
+            <img src="./viha_web_photos/3_M.jpg" onclick="openImageViewer(this.src)">
+            <p>3rd Month</p>
+        </div>
 
-            <div class="memory-card">
-                <div class="memory-card"><img src="./viha_web_photos/5_M.jpeg" onclick="openImageViewer(this.src)"></div>
-                <p>5th Month</p>
-            </div>
+        <div class="memory-card">
+            <img src="./viha_web_photos/4_M.jpg" onclick="openImageViewer(this.src)">
+            <p>4th Month</p>
+        </div>
 
-            <div class="memory-card">
-                <div class="memory-card"><img src="./viha_web_photos/6_M.jpeg" onclick="openImageViewer(this.src)"></div>
-                <p>6th Month</p>
-            </div>
+        <div class="memory-card">
+            <img src="./viha_web_photos/5_M.jpg" onclick="openImageViewer(this.src)">
+            <p>5th Month</p>
+        </div>
 
-            <div class="memory-card">
-                <div class="memory-card"><img src="./viha_web_photos/7_M.jpeg" onclick="openImageViewer(this.src)"></div>
-                <p>7th Month</p>
-            </div>
+        <div class="memory-card">
+            <img src="./viha_web_photos/6_M.jpg" onclick="openImageViewer(this.src)">
+            <p>6th Month</p>
+        </div>
 
-            <div class="memory-card">
-                <div class="memory-card"><img src="./viha_web_photos/8_M.jpeg" onclick="openImageViewer(this.src)"></div>
-                <p>8th Month</p>
-            </div>
+        <div class="memory-card">
+            <img src="./viha_web_photos/7_M.jpg" onclick="openImageViewer(this.src)">
+            <p>7th Month</p>
+        </div>
 
-            <div class="memory-card">
-                <div class="memory-card"><img src="./viha_web_photos/9_M.jpeg" onclick="openImageViewer(this.src)"></div>
-                <p>9th Month</p>
-            </div>
+        <div class="memory-card">
+            <img src="./viha_web_photos/8_M.jpg" onclick="openImageViewer(this.src)">
+            <p>8th Month</p>
+        </div>
 
-            <div class="memory-card">
-                <div class="memory-card"><img src="./viha_web_photos/10_M.jpeg" onclick="openImageViewer(this.src)"></div>
-                <p>10th Month</p>
-            </div>
+        <div class="memory-card">
+            <img src="./viha_web_photos/9_M.jpg" onclick="openImageViewer(this.src)">
+            <p>9th Month</p>
+        </div>
 
-            <div class="memory-card">
-                <div class="memory-card"><img src="./viha_web_photos/11_M.jpeg" onclick="openImageViewer(this.src)"></div>
-                <p>11th Month</p>
-            </div>
+        <div class="memory-card">
+            <img src="./viha_web_photos/10_M.jpg" onclick="openImageViewer(this.src)">
+            <p>10th Month</p>
+        </div>
 
-            <div class="memory-card">
-                <div class="memory-card"><img src="./viha_web_photos/12_M.jpeg" onclick="openImageViewer(this.src)"></div>
-                <p>12th Month</p>
-            </div>
+        <div class="memory-card">
+            <img src="./viha_web_photos/11_M.jpg" onclick="openImageViewer(this.src)">
+            <p>11th Month</p>
+        </div>
 
+        <div class="memory-card">
+            <img src="./viha_web_photos/12_M.jpg" onclick="openImageViewer(this.src)">
+            <p>12th Month</p>
         </div>
 
     </div>
+</div>
 
 </section>
 
@@ -848,26 +877,44 @@
 
     <div class="memory-grid" style="max-width:1300px; margin:auto;">
 
-        <div class="memory-card"><img src="./viha_web_photos/memory1.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory2.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory3.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory4.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory5.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory6.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory7.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory8.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory9.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory10.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory11.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory12.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory13.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory14.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory15.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory16.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory17.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory18.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory19.jpg" onclick="openImageViewer(this.src)"></div>
-        <div class="memory-card"><img src="./viha_web_photos/memory20.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM1.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM2.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM3.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM4.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM5.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM6.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM7.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM8.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM9.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM10.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM11.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM12.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM13.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM14.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM15.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM16.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM17.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM18.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM19.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM20.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM21.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM22.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM23.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM24.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM25.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM26.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM27.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM28.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM29.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM30.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM31.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM32.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM33.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM34.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM35.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM36.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM37.jpg" onclick="openImageViewer(this.src)"></div>
+        <div class="memory-card"><img src="./viha_web_photos/VM38.jpg" onclick="openImageViewer(this.src)"></div>
 
     </div>
 
@@ -1262,6 +1309,16 @@
     } else {
         section.style.display = 'none';
     }
+}
+
+function openMonthPopup() {
+    document.getElementById('month-popup').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMonthPopup() {
+    document.getElementById('month-popup').style.display = 'none';
+    document.body.style.overflow = 'auto';
 }
 
 function openMemoryPopup() {
