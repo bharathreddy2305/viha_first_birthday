@@ -9,9 +9,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
-
     <style>
         :root {
             --blush: #ffb7b2;
@@ -321,26 +318,13 @@
         }
         .milestone-badge:hover { transform: translateY(-4px); border-color: var(--blush); background: #fffcfc; }
 
-        /* Pop-up Modals visibility layer fix */
-        #milestone-modal, #image-viewer, #surprise-popup, #timeline-popup, #month-popup, #memory-popup {
-            pointer-events: none; /* Prevents hidden layers from blocking bottom clicks */
-        }
-        
-        #milestone-modal.modal-open, 
-        #image-viewer[style*="display: flex"], #image-viewer[style*="display: block"],
-        #surprise-popup[style*="display: flex"], #surprise-popup[style*="display: block"],
-        #timeline-popup[style*="display: flex"], #timeline-popup[style*="display: block"],
-        #month-popup[style*="display: block"], #memory-popup[style*="display: block"] {
-            pointer-events: auto; /* Restores touch inputs only when popups are visibly active */
-        }
-
         #milestone-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(58, 53, 53, 0.4); backdrop-filter: blur(6px); z-index: 10001;
-            display: flex; align-items: center; justify-content: center; opacity: 0;
+            display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none;
             transition: opacity 0.4s ease; padding: 20px;
         }
-        #milestone-modal.modal-open { opacity: 1; }
+        #milestone-modal.modal-open { opacity: 1; pointer-events: auto; }
         .modal-body {
             background: white; width: 100%; max-width: 360px; border-radius: 24px; padding: 24px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 1px solid var(--gold-light);
@@ -391,7 +375,7 @@
         .surprise-close { position: absolute; top: -18px; right: -10px; width: 42px; height: 42px; border-radius: 50%; border: none; background: white; font-size: 1.5rem; font-weight: bold; cursor: pointer; }
 
         /* INTERACTIVE MEMORY TIMELINE - RESPONSIVE DYNAMIC CSS GRID */
-        .memory-timeline-section { min-height: auto; padding: 50px 18px; text-align: center; width: 100%; z-index: 10; position: relative; }
+        .memory-timeline-section { min-height: auto; padding: 50px 18px; text-align: center; width: 100%; z-index: 10; relative; }
         .timeline-scroll { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; width: 100%; max-width: 850px; margin: 0 auto; padding: 20px 10px 30px; }
         
         .timeline-point { width: 100%; background: white; border-radius: 24px; padding: 20px 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s ease; border: 1px solid #f5e5e5; position: relative; z-index: 20; }
@@ -764,10 +748,10 @@
     </div>
 
     <section style="background-color: #fff9f9;">
-        <span class="sc-sub-tiny">LIVE BLESSINGS FOR VIHA</span>
+        <span class="sc-sub-tiny">BLESSINGS FOR VIHA</span>
         <h1 style="font-family: 'Great Vibes'; font-size: 3.2rem; color: var(--blush-dark); margin: 0 0 5px 0;">Wishes Wall</h1>
         <p style="font-family: 'Cormorant Garamond'; font-size: 1.1rem; color: var(--text-light); max-width: 320px; font-style: italic; margin-bottom: 20px;">
-            Leave a live blessing for Viha! Your message will instantly sync to everyone viewing this page.
+            Leave a beautiful blessing or birthday message for Viha!
         </p>
 
         <div class="rsvp-card" style="border-radius: 24px; padding: 22px; margin-bottom: 5px;">
@@ -779,12 +763,10 @@
                 <label>YOUR BLESSING / MESSAGE</label>
                 <input type="text" id="wish-text" placeholder="E.g., Grow up healthy and happy, little angel!">
             </div>
-            <button class="btn-premium" onclick="postWish()">POST LIVE WISH 🎈</button>
+            <button class="btn-premium" onclick="postWish()">POST SWEET WISH 🎈</button>
         </div>
 
-        <div class="wishes-grid" id="wishes-wall-container">
-            <p class="text-xs text-stone-400 italic text-center w-full col-span-2">Loading live sweet wishes... ✨</p>
-        </div>
+        <div class="wishes-grid" id="wishes-wall-container"></div>
     </section>
 
     <div class="photo-gallery-divider" data-aos="zoom-in">
@@ -837,19 +819,19 @@
         <img id="viewer-img" src="">
     </div>
 
-    <div id="voice-popup" onclick="startVoiceGreeting()" style="position:fixed; inset:0; background:rgba(0,0,0,0.72); z-index:9999999; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(8px); padding:20px; cursor:pointer;">
-        <div onclick="event.stopPropagation()" style="background:white; padding:35px 25px; border-radius:28px; text-align:center; max-width:360px; width:90%; box-shadow:0 15px 45px rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.5); cursor:default;">
+    <div id="voice-popup" style="position:fixed; inset:0; background:rgba(0,0,0,0.72); z-index:9999999; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(8px); padding:20px;">
+        <div style="background:white; padding:35px 25px; border-radius:28px; text-align:center; max-width:360px; width:90%; box-shadow:0 15px 45px rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.5);">
             <div style="font-size:3rem; margin-bottom:10px;">🎀</div>
             <h2 style="font-family:'Great Vibes'; font-size:2.8rem; color:#e09893; margin:0 0 10px 0;">Welcome</h2>
             <p style="font-family:'Quicksand'; color:#666; line-height:1.6; margin-bottom:25px; font-size:0.95rem;">
                 Tap below to enter Viha's magical birthday world ✨
             </p>
-            <button onclick="startVoiceGreeting()" class="btn-premium" style="border-radius:40px; width:auto; padding:13px 24px; pointer-events:auto;">🎵 Enter Celebration</button>
+            <button onclick="startVoiceGreeting()" class="btn-premium" style="border-radius:40px; width:auto; padding:13px 24px;">🎵 Enter Celebration</button>
         </div>
     </div>
 
     <audio id="welcome-voice" preload="auto">
-        <source src="./viha_web_photos/AUD-20260512-WA0040.opus" type="audio/ogg; codecs=opus">
+        <source src="./viha_web_photos/AUD-20260512-WA0040.opus" type="audio/mpeg">
     </audio>
 
     <button class="secret-surprise-btn" onclick="openSurprise()">🎁 Tap for Surprise</button>
@@ -868,21 +850,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
-
-        // --- FIREBASE LIVE BACKEND CONFIGURATION ---
-        const firebaseConfig = {
-            apiKey: "AIzaSyAwo0NqpAwjkFofwteEppQN5k5DUFqM7-Y",
-            authDomain: "viha-invitation.firebaseapp.com",
-            projectId: "viha-invitation",
-            storageBucket: "viha-invitation.firebasestorage.app",
-            messagingSenderId: "336877537095",
-            appId: "1:336877537095:web:fde643387de150953b2e62"
-        };
-        
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-        const wishesRef = database.ref('viha_live_wishes');
 
         let audioCtx;
         let bgMusic = document.getElementById('bg-music');
@@ -1012,48 +979,30 @@
         }
         function closeMilestoneModal() { document.getElementById('milestone-modal').classList.remove('modal-open'); }
 
-        // --- REAL-TIME CLOUD LISTENER ---
-        const defaultWishes = [
-            { sender: "Grandpa Orla", text: "Happy 1st Birthday my sweetest little angel princess! Blessings always." },
-            { sender: "Aunt Priya", text: "Can't wait to see your giant cake cutting smile! Sending infinite love." }
+        let liveWishesList = [
+            { sender: "Mom", text: "Happy 1st Birthday my sweetest little angel princess! Blessings always." },
+            { sender: "Dad", text: "To my baby girl—happiest birthday! Daddy loves you to the moon and back" }
         ];
+        if(localStorage.getItem('viha_wishes')) { liveWishesList = JSON.parse(localStorage.getItem('viha_wishes')); }
 
-        wishesRef.on('value', (snapshot) => {
-            const container = document.getElementById('wishes-wall-container');
-            if(!container) return;
+        function renderWishesWall() {
+            const container = document.getElementById('wishes-wall-container'); if(!container) return;
             container.innerHTML = '';
-
-            let liveWishesFetched = [];
-            snapshot.forEach((childSnapshot) => {
-                liveWishesFetched.push(childSnapshot.val());
-            });
-
-            const unifiedWishesList = [...defaultWishes, ...liveWishesFetched];
-
-            unifiedWishesList.reverse().forEach(wish => {
-                const card = document.createElement('div'); 
-                card.className = 'wish-card';
+            liveWishesList.forEach(wish => {
+                const card = document.createElement('div'); card.className = 'wish-card';
                 card.innerHTML = `<p class="font-bold text-pink-600 mb-0.5 font-['Quicksand']">${escapeHTML(wish.sender)}</p><p class="text-stone-600 italic">"${escapeHTML(wish.text)}"</p>`;
-                container.appendChild(card);
+                container.prepend(card);
             });
-        });
-
-        function postWish() {
-            const s = document.getElementById('wish-sender'); 
-            const t = document.getElementById('wish-text');
-            if(!s.value.trim() || !t.value.trim()) { alert("Please enter both name and blessing!"); return; }
-            
-            wishesRef.push({ 
-                sender: s.value.trim(), 
-                text: t.value.trim(),
-                timestamp: firebase.database.ServerValue.TIMESTAMP
-            });
-
-            s.value = ''; t.value = ''; 
-            triggerConfettiBurst();
         }
-
-        function escapeHTML(str) { return str.replace(/[&<>'"]/g, c => ({ '&': '&', '<': '<', '>': '>', "'": ''', '"': '"' }[c] || c)); }
+        function postWish() {
+            const s = document.getElementById('wish-sender'); const t = document.getElementById('wish-text');
+            if(!s.value.trim() || !t.value.trim()) { alert("Please enter both name and blessing!"); return; }
+            liveWishesList.push({ sender: s.value.trim(), text: t.value.trim() });
+            localStorage.setItem('viha_wishes', JSON.stringify(liveWishesList));
+            s.value = ''; t.value = ''; renderWishesWall(); triggerConfettiBurst();
+        }
+        function escapeHTML(str) { return str.replace(/[&<>'"]/g, c => ({ '&': '&', '<': '<', '>': '>', "'": '&#39;', '"': '&quot;' }[c] || c)); }
+        renderWishesWall();
 
         const confettiCanvas = document.getElementById('confetti-canvas'); const cCtx = confettiCanvas.getContext('2d');
         let confettiParticles = [];
@@ -1150,46 +1099,21 @@
             if(touchEndX - touchStartX > 50) { prevImage(); }
         });
 
-        // --- FIXED FAIL-SAFE GREETING TRIGGER ---
-        window.startVoiceGreeting = function() {
-            const voicePopup = document.getElementById('voice-popup');
+        function startVoiceGreeting() {
             const voice = document.getElementById('welcome-voice');
-            const girlBubble = document.getElementById('girl-bubble');
-
-            // 1. Force absolute parent container removal to unblock background UI layers
-            if (voicePopup) {
-                voicePopup.style.display = 'none';
+            voice.currentTime = 0;
+            voice.play().catch(() => { console.log("Voice autoplay blocked until user interaction."); });
+            document.getElementById('voice-popup').style.display = 'none';
+            if (typeof triggerConfettiBurst === "function") { triggerConfettiBurst(); }
+            if (typeof girlBubble !== "undefined") {
+                setTimeout(() => { girlBubble.innerText = "Welcome to Viha's world! 🎀"; girlBubble.classList.add('bubble-visible'); }, 1200);
             }
-
-            // 2. Wrap audio in a clean Try/Catch block to silently bypass codec crashes on phones
-            try {
-                if (voice) {
-                    voice.currentTime = 0;
-                    const playPromise = voice.play();
-                    if (playPromise !== undefined) {
-                        playPromise.catch(e => { console.warn("Audio safely suppressed by browser policy."); });
-                    }
-                }
-            } catch (err) {
-                console.warn("Audio tag loading bypassed gracefully.");
-            }
-
-            // 3. Complete visual loading pipeline
-            if (typeof triggerConfettiBurst === "function") {
-                triggerConfettiBurst();
-            }
-
-            if (girlBubble) {
-                setTimeout(() => { 
-                    girlBubble.innerText = "Welcome to Viha's world! 🎀"; 
-                    girlBubble.classList.add('bubble-visible'); 
-                }, 1200);
-            }
-        };
+        }
 
         function openSurprise() { document.getElementById('surprise-popup').style.display = 'flex'; document.body.style.overflow = 'hidden'; if (typeof triggerConfettiBurst === "function") { triggerConfettiBurst(); } }
         function closeSurprise() { document.getElementById('surprise-popup').style.display = 'none'; document.body.style.overflow = 'auto'; }
 
+        // --- TIMELINE POPUP INTEGRATION ---
         window.timelineMemories = [
             { title: "1 Month of Magic 🌙", img: "./viha_web_photos/1_M.jpeg", desc: "Our tiny moonbeam arrived and filled every corner of our home with warmth, wonder, and love." },
             { title: "3 Months of Smiles 😊", img: "./viha_web_photos/3_M.jpeg", desc: "Tiny smiles turned into sweet giggles, and every day became brighter with Viha's happiness." },
@@ -1198,6 +1122,7 @@
             { title: "One Year of Love 🎂", img: "./viha_web_photos/12_M.jpeg", desc: "From tiny steps to big smiles, Viha's first year has been our most beautiful blessing." }
         ];
 
+        // Attached firmly to window object to prevent scope failure on mobile taps
         window.openTimelineMemory = function(index) {
             var memory = window.timelineMemories[index];
             if (!memory) return;
