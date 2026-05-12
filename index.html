@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Viha is Turning One! | Magical Birthday Invitation</title>
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Animate On Scroll -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
     <style>
@@ -388,16 +385,16 @@
         }
         #milestone-modal.modal-open .modal-body { transform: scale(1); }
         .modal-image {
-    width: 100%;
-    height: 320px;
-    border-radius: 16px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-bottom: 15px;
-    border: 1px solid #f5ebeb;
-    background-color: #fff;
-}
+            width: 100%;
+            height: 320px;
+            border-radius: 16px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 15px;
+            border: 1px solid #f5ebeb;
+            background-color: #fff;
+        }
 
         /* Timelines layout setup */
         .day-divider { display: flex; align-items: center; width: 100%; gap: 12px; margin-bottom: 25px; max-width: 350px; }
@@ -425,315 +422,303 @@
         #confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10000; }
 
         .memory-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:18px;
-    width:100%;
-    padding:10px;
-}
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 18px;
+            width: 100%;
+            padding: 10px;
+        }
 
-.memory-card {
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-    padding:10px;
-    transition:0.3s ease;
-}
+        .memory-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            padding: 10px;
+            transition: 0.3s ease;
+        }
 
-.memory-card:hover {
-    transform:translateY(-5px) scale(1.02);
-}
+        .memory-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
 
-.memory-card img {
-    width:100%;
-    height:240px;
-    object-fit:cover;
-    border-radius:14px;
-}
+        .memory-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 14px;
+            cursor: pointer;
+        }
 
-.memory-card p {
-    margin-top:10px;
-    font-family:'Quicksand';
-    font-weight:700;
-    color:#666;
-}
+        .memory-card p {
+            margin-top: 10px;
+            font-family: 'Quicksand';
+            font-weight: 700;
+            color: #666;
+        }
 
         /* FULLSCREEN IMAGE VIEWER */
-#image-viewer {
-    display:none;
-    position:fixed;
-    z-index:999999;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.92);
-    backdrop-filter:blur(8px);
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    padding:20px;
-}
+        #image-viewer {
+            display: none;
+            position: fixed;
+            z-index: 999999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+        }
 
-#viewer-img {
-    max-width:95%;
-    max-height:80vh;
-    border-radius:18px;
-    box-shadow:0 10px 40px rgba(0,0,0,0.5);
-    object-fit:contain;
-}
+        #viewer-img {
+            max-width: 95%;
+            max-height: 80vh;
+            border-radius: 18px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
 
-.viewer-controls {
-    position:absolute;
-    width:100%;
-    top:50%;
-    transform:translateY(-50%);
-    display:flex;
-    justify-content:space-between;
-    padding:0 20px;
-}
+        .viewer-controls {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
 
-.viewer-btn {
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    border:none;
-    background:rgba(255,255,255,0.2);
-    color:white;
-    font-size:2rem;
-    cursor:pointer;
-    backdrop-filter:blur(4px);
-}
+        .viewer-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+        }
 
-#viewer-close {
-    position:absolute;
-    top:20px;
-    right:20px;
-    width:50px;
-    height:50px;
-    border:none;
-    border-radius:50%;
-    background:white;
-    font-size:1.8rem;
-    cursor:pointer;
-    font-weight:bold;
-}
+        #viewer-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            background: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-/* SECRET SURPRISE BUTTON */
-.secret-surprise-btn {
-    position:fixed;
-    bottom:90px;
-    left:25px;
-    z-index:9999;
-    background:linear-gradient(135deg,#f7b7b2,#f3d7a4);
-    color:white;
-    border:none;
-    border-radius:50px;
-    padding:13px 20px;
-    font-family:'Quicksand';
-    font-weight:700;
-    font-size:0.9rem;
-    box-shadow:0 10px 25px rgba(224,152,147,0.35);
-    cursor:pointer;
-    animation:surprisePulse 2s infinite;
-}
+        /* SECRET SURPRISE BUTTON */
+        .secret-surprise-btn {
+            position: fixed;
+            bottom: 90px;
+            left: 25px;
+            z-index: 9999;
+            background: linear-gradient(135deg, #f7b7b2, #f3d7a4);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 13px 20px;
+            font-family: 'Quicksand';
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 25px rgba(224,152,147,0.35);
+            cursor: pointer;
+            animation: surprisePulse 2s infinite;
+        }
 
-@keyframes surprisePulse {
-    0% { transform:scale(1); }
-    50% { transform:scale(1.07); }
-    100% { transform:scale(1); }
-}
+        @keyframes surprisePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.07); }
+            100% { transform: scale(1); }
+        }
 
-#surprise-popup {
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.82);
-    z-index:999999;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    backdrop-filter:blur(8px);
-}
+        #surprise-popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.82);
+            z-index: 999999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
 
-.surprise-card {
-    background:white;
-    border-radius:30px;
-    padding:25px;
-    max-width:380px;
-    width:92%;
-    text-align:center;
-    box-shadow:0 20px 60px rgba(0,0,0,0.25);
-    position:relative;
-}
+        .surprise-card {
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            max-width: 380px;
+            width: 92%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+            position: relative;
+        }
 
-.surprise-card img {
-    width:100%;
-    max-height:360px;
-    object-fit:contain;
-    border-radius:22px;
-    margin-bottom:18px;
-    background:#fff7f7;
-}
+        .surprise-card img {
+            width: 100%;
+            max-height: 360px;
+            object-fit: contain;
+            border-radius: 22px;
+            margin-bottom: 18px;
+            background: #fff7f7;
+        }
 
-.surprise-close {
-    position:absolute;
-    top:-18px;
-    right:-10px;
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    border:none;
-    background:white;
-    font-size:1.5rem;
-    font-weight:bold;
-    cursor:pointer;
-}
+        .surprise-close {
+            position: absolute;
+            top: -18px;
+            right: -10px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-/* INTERACTIVE MEMORY TIMELINE */
-.memory-timeline-section {
-    min-height:auto;
-    padding:50px 18px;
-    text-align:center;
-}
+        /* INTERACTIVE MEMORY TIMELINE - RESPONSIVE DYNAMIC CSS GRID */
+        .memory-timeline-section {
+            min-height: auto;
+            padding: 50px 18px;
+            text-align: center;
+            width: 100%;
+        }
 
-.timeline-scroll {
-    display:flex;
-    gap:22px;
-    overflow-x:auto;
-    padding:20px 10px 30px;
-    scroll-snap-type:x mandatory;
-}
+        .timeline-scroll {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px 10px 30px;
+        }
 
-.timeline-scroll::-webkit-scrollbar {
-    height:6px;
-}
+        .timeline-point {
+            width: 100%;
+            background: white;
+            border-radius: 24px;
+            padding: 20px 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: 0.3s ease;
+            border: 1px solid #f5e5e5;
+        }
 
-.timeline-scroll::-webkit-scrollbar-thumb {
-    background:#e7b7b0;
-    border-radius:20px;
-}
+        .timeline-point:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 35px rgba(224,152,147,0.25);
+        }
 
-.timeline-point {
-    min-width:160px;
-    background:white;
-    border-radius:24px;
-    padding:20px 15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    cursor:pointer;
-    scroll-snap-align:center;
-    transition:0.3s ease;
-    border:1px solid #f5e5e5;
-}
+        .timeline-dot {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #f7b7b2, #f3d7a4);
+            color: white;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
 
-.timeline-point:hover {
-    transform:translateY(-6px);
-    box-shadow:0 14px 35px rgba(224,152,147,0.25);
-}
+        .timeline-point h3 {
+            font-family: 'Quicksand';
+            font-size: 1rem;
+            color: #555;
+            margin: 0;
+        }
 
-.timeline-dot {
-    width:45px;
-    height:45px;
-    background:linear-gradient(135deg,#f7b7b2,#f3d7a4);
-    color:white;
-    border-radius:50%;
-    margin:0 auto 12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:1.3rem;
-}
+        .timeline-point p {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 6px;
+        }
 
-.timeline-point h3 {
-    font-family:'Quicksand';
-    font-size:1rem;
-    color:#555;
-    margin:0;
-}
+        /* TIMELINE POPUP FIX */
+        #timeline-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.88);
+            z-index: 99999999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
 
-.timeline-point p {
-    font-size:0.75rem;
-    color:#999;
-    margin-top:6px;
-}
+        .timeline-popup-card {
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            max-width: 390px;
+            width: 92%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
 
-/* TIMELINE POPUP FIX */
-#timeline-popup {
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.88);
-    z-index:99999999;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    backdrop-filter:blur(8px);
-}
+        .timeline-popup-card img {
+            width: 100%;
+            max-height: 360px;
+            object-fit: contain;
+            border-radius: 22px;
+            background: #fff7f7;
+            margin-bottom: 18px;
+        }
 
-.timeline-popup-card {
-    background:white;
-    border-radius:30px;
-    padding:25px;
-    max-width:390px;
-    width:92%;
-    text-align:center;
-    position:relative;
-    box-shadow:0 20px 60px rgba(0,0,0,0.25);
-}
-
-.timeline-popup-card img {
-    width:100%;
-    max-height:360px;
-    object-fit:contain;
-    border-radius:22px;
-    background:#fff7f7;
-    margin-bottom:18px;
-}
-
-.timeline-popup-close {
-    position:absolute;
-    top:-18px;
-    right:-10px;
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    border:none;
-    background:white;
-    font-size:1.5rem;
-    font-weight:bold;
-    cursor:pointer;
-    z-index:2;
-}
+        .timeline-popup-close {
+            position: absolute;
+            top: -18px;
+            right: -10px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2;
+        }
         
     </style>
     
 </head>
 <body>
 
-    <!-- Confetti Fireworks Layer -->
     <canvas id="confetti-canvas"></canvas>
 
-    <!-- Background Music Holder Asset -->
     <audio id="bg-music" loop>
         <source src="https://assets.mixkit.co/active_storage/sfx/123/123-200.wav" type="audio/wav">
     </audio>
 
-    <!-- Music Control Float Button -->
     <div id="music-control" class="hidden" onclick="toggleMusic()">
         <span id="music-icon" style="font-size: 1.1rem;">🎵</span>
     </div>
 
-    <!-- 1. CRAWLING BABY WIDGET COMPONENT MESH (ZIG ZAG TRACKED) -->
     <div id="scrolling-girl-container" class="is-idle-giggle">
         <div class="girl-speech-bubble" id="girl-bubble">Crawling along! 🍭</div>
         
-        <!-- 3D Shaded Visual Representation Elements -->
         <div class="baby-3d-body-mesh">
-            <!-- Head & Accessories -->
             <div class="baby-3d-head">
                 <div class="baby-3d-bow"></div>
                 <div class="baby-3d-eye left"></div>
@@ -742,11 +727,9 @@
                 <div class="baby-3d-cheek right"></div>
                 <div class="baby-3d-mouth"></div>
             </div>
-            <!-- Torso & Diaper Cover -->
             <div class="baby-3d-torso">
                 <div class="baby-3d-diaper"></div>
             </div>
-            <!-- Moving Limbs Systems -->
             <div class="baby-3d-limb arm-left"></div>
             <div class="baby-3d-limb arm-right"></div>
             <div class="baby-3d-limb leg-left"></div>
@@ -754,7 +737,6 @@
         </div>
     </div>
 
-    <!-- Page 1: Magical Envelope Screen Overlay -->
     <div id="envelope-page">
         <div class="envelope-container" data-aos="zoom-in">
             <span class="sc-sub-tiny" style="color: var(--blush-dark); font-weight: 600;">YOU ARE WARM-HEARTEDLY INVITED</span>
@@ -769,10 +751,8 @@
         </div>
     </div>
 
-    <!-- Ambient Grid Background Particle System Layout -->
     <div id="particles-container" class="absolute inset-0 pointer-events-none overflow-hidden z-0"></div>
 
-    <!-- SECTION 1: Intro Welcome Hero Card -->
     <section>
         <div class="content-card premium-border" data-aos="fade-up">
             <div class="text-xl text-pink-300 animate-bounce">✨</div>
@@ -790,13 +770,11 @@
         </div>
     </section>
 
-    <!-- PHOTO INSERT 1 -->
     <div class="photo-gallery-divider" data-aos="zoom-in">
         <div class="photo-frame-inner" style="background-image: url('./viha_web_photos/IMG-20250530-WA0004.jpg.jpeg');"></div>
         <div class="photo-caption">Born with Grace & Sparkle</div>
     </div>
 
-    <!-- SECTION 2: Scratch Card Interactive Date -->
     <section style="background: linear-gradient(to bottom, transparent, #fff6f6, transparent);">
         <p class="sc-sub-tiny">THE MAGICAL DATE</p>
         <h1 style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--blush-dark); margin: 5px 0 0 0;">Scratch to Reveal</h1>
@@ -828,13 +806,11 @@
         <div class="mt-5 text-xs text-stone-400 font-['Quicksand']">✨ Sunday Evening Party ✨</div>
     </section>
 
-    <!-- PHOTO INSERT 2 -->
     <div class="photo-gallery-divider" data-aos="zoom-in">
         <div class="photo-frame-inner" style="background-image: url('./viha_web_photos/12.png');"></div>
         <div class="photo-caption">Our Absolute Sunshine</div>
     </div>
 
-    <!-- SECTION 3: Countdown Clock Badge Grid -->
     <section>
         <div class="content-card premium-border" style="border-radius: 40px;" data-aos="fade-up">
             <span class="sc-sub-tiny" style="color: var(--gold);">COUNTDOWN TO THE PARTY</span>
@@ -858,13 +834,11 @@
         </div>
     </section>
 
-    <!-- PHOTO INSERT 3 -->
     <div class="photo-gallery-divider" data-aos="zoom-in">
         <div class="photo-frame-inner" style="background-image: url('./viha_web_photos/4.png');"></div>
         <div class="photo-caption">Every Single Day Is Magical</div>
     </div>
 
-    <!-- SECTION 4: Interactive "Viha's Firsts" with Modals System -->
     <section style="background-color: #fffbf9;">
         <span class="sc-sub-tiny">A YEAR OF WONDER</span>
         <h1 style="font-family: 'Great Vibes'; font-size: 3.2rem; color: var(--blush-dark); margin: 0 0 10px 0;">Viha's Sweet Firsts</h1>
@@ -872,7 +846,6 @@
             Tap on each sweet milestone badge to open Viha's real memory photo frame!
         </p>
 
-        <!-- Clickable Tiles -->
         <div class="grid grid-cols-2 gap-4 w-full max-w-[350px] px-2 mb-2">
             <div class="milestone-badge" onclick="openMilestoneModal(0)">
                 <div class="text-3xl mb-1">🍼</div>
@@ -899,14 +872,12 @@
         </div>
     </section>
 
-    <!-- PHOTO INSERT 4 -->
     <div class="photo-gallery-divider" data-aos="zoom-in">
         <div class="photo-frame-inner" style="background-image: url('./viha_web_photos/13.png');"></div>
         <div class="photo-caption">Giggles and Sparkly Eyes</div>
     </div>
 
-    <!-- MEMORY BUTTONS SECTION -->
-<section style="min-height:auto; padding-top:20px; padding-bottom:20px;">
+    <section style="min-height:auto; padding-top:20px; padding-bottom:20px;">
 
     <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; margin-bottom:25px;">
 
@@ -924,9 +895,7 @@
 
     </div>
 
-    <!-- MONTH WISE GALLERY -->
-    <!-- FULLSCREEN MONTH WISE POPUP -->
-<div id="month-popup"
+    <div id="month-popup"
      style="display:none;
             position:fixed;
             top:0;
@@ -938,7 +907,6 @@
             overflow-y:auto;
             padding:30px 15px;">
 
-    <!-- CLOSE BUTTON -->
     <div style="text-align:right; max-width:1200px; margin:auto; margin-bottom:20px;">
         <button onclick="closeMonthPopup()"
                 style="background:white;
@@ -1028,7 +996,6 @@
 
 </section>
 
-<!-- FULLSCREEN MEMORY POPUP -->
 <div id="memory-popup"
      style="display:none;
             position:fixed;
@@ -1041,7 +1008,6 @@
             overflow-y:auto;
             padding:30px 15px;">
 
-    <!-- CLOSE BUTTON -->
     <div style="text-align:right; max-width:1200px; margin:auto; margin-bottom:20px;">
         <button onclick="closeMemoryPopup()"
                 style="background:white;
@@ -1109,7 +1075,6 @@
 
 </div>
 
-<!-- INTERACTIVE MEMORY TIMELINE SECTION -->
 <section class="memory-timeline-section">
 
     <h1 style="font-family:'Great Vibes'; font-size:3.4rem; color:var(--blush-dark); margin-bottom:8px;">
@@ -1156,7 +1121,6 @@
 
 </section>
 
-<!-- TIMELINE MEMORY POPUP -->
 <div id="timeline-popup">
 
     <div class="timeline-popup-card">
@@ -1170,14 +1134,13 @@
         </h2>
 
         <p id="timeline-popup-desc"
-           style="font-family:'Quicksand'; color:#666; line-height:1.7; font-size:0.95rem;">
+            style="font-family:'Quicksand'; color:#666; line-height:1.7; font-size:0.95rem;">
         </p>
 
     </div>
 
 </div>
     
-    <!-- SECTION 5: Itinerary Timeline Schedule Card -->
     <section>
         <div class="day-divider">
             <div class="d-line"></div>
@@ -1231,13 +1194,11 @@
         </div>
     </section>
 
-    <!-- PHOTO INSERT 5 -->
     <div class="photo-gallery-divider" data-aos="zoom-in">
         <div class="photo-frame-inner" style="background-image: url('./viha_web_photos/18.png');"></div>
         <div class="photo-caption">Growing Up with Blessings</div>
     </div>
 
-    <!-- SECTION 6: Wishes Wall Guestbook Note Board -->
     <section style="background-color: #fff9f9;">
         <span class="sc-sub-tiny">BLESSINGS FOR VIHA</span>
         <h1 style="font-family: 'Great Vibes'; font-size: 3.2rem; color: var(--blush-dark); margin: 0 0 5px 0;">Wishes Wall</h1>
@@ -1260,14 +1221,12 @@
         <div class="wishes-grid" id="wishes-wall-container"></div>
     </section>
 
-    <!-- PHOTO INSERT 6 -->
     <div class="photo-gallery-divider" data-aos="zoom-in">
         <div class="photo-frame-inner" style="background-image: url('./viha_web_photos/10.png');"></div>
         <div class="photo-caption">Love Beyond Measures</div>
     </div>
 
-    <!-- SECTION 7: Venue Details -->
-<section>
+    <section>
     <h1 style="font-family: 'Great Vibes'; font-size: 3.5rem; color: var(--blush-dark); margin: 0 0 15px 0;">
         Join the Magic
     </h1>
@@ -1286,8 +1245,8 @@
 
         <div style="text-align: center; margin-top: 20px;">
             <a href="https://maps.app.goo.gl/16fKVggZ8FxWJireA"
-               target="_blank"
-               class="inline-flex items-center gap-2 text-[0.65rem] font-['Montserrat'] tracking-wider bg-stone-100 px-4 py-2 rounded-full text-stone-600 font-semibold no-underline hover:bg-stone-200 transition">
+                target="_blank"
+                class="inline-flex items-center gap-2 text-[0.65rem] font-['Montserrat'] tracking-wider bg-stone-100 px-4 py-2 rounded-full text-stone-600 font-semibold no-underline hover:bg-stone-200 transition">
 
                 📍 VIEW VENUE DIRECTIONS
             </a>
@@ -1296,7 +1255,6 @@
     </div>
 </section>
 
-    <!-- SECTION 8: Royal Footer Block Backdrop -->
     <section style="background: linear-gradient(135deg, #ffb7b2 0%, #e09893 100%); color: white; min-height: 50vh;">
         <div class="text-2xl mb-3 text-amber-200 animate-pulse">✨👑✨</div>
         <p style="font-style: italic; max-width: 290px; font-size: 1.15rem; line-height: 1.5;">
@@ -1311,7 +1269,6 @@
         </p>
     </section>
 
-    <!-- Milestone Pop-up Dialog Element Modal Frame Box -->
     <div id="milestone-modal" onclick="closeMilestoneModal()">
         <div class="modal-body" onclick="event.stopPropagation()">
             <button class="absolute top-3 right-4 font-bold text-stone-400 hover:text-stone-700 text-lg font-mono" onclick="closeMilestoneModal()">×</button>
@@ -1321,7 +1278,6 @@
         </div>
     </div>
 
-    <!-- App Engine Javascript Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
@@ -1414,7 +1370,7 @@
             }, 200); 
         });
 
-        // May 16, 2026 Countdown Engine
+        // May 17, 2026 Countdown Engine
         const birthdayDate = new Date("May 17, 2026 17:30:00").getTime();
         function updateCountdown() {
             const now = new Date().getTime(); 
@@ -1510,7 +1466,7 @@
             localStorage.setItem('viha_wishes', JSON.stringify(liveWishesList));
             s.value = ''; t.value = ''; renderWishesWall(); triggerConfettiBurst();
         }
-        function escapeHTML(str) { return str.replace(/[&<>'"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[c] || c)); }
+        function escapeHTML(str) { return str.replace(/[&<>'"]/g, c => ({ '&': '&', '<': '<', '>': '>', "'": '&#39;', '"': '&quot;' }[c] || c)); }
         renderWishesWall();
 
         function triggerRSVPConfirmation() {
@@ -1557,207 +1513,203 @@
                 container.appendChild(b);
             }
         }
+        
         function toggleSection(id) {
-    const section = document.getElementById(id);
+            const section = document.getElementById(id);
+            if(section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+                section.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                section.style.display = 'none';
+            }
+        }
 
-    if(section.style.display === 'none' || section.style.display === '') {
-        section.style.display = 'block';
-        section.scrollIntoView({ behavior: 'smooth' });
-    } else {
-        section.style.display = 'none';
-    }
-}
+        function openMonthPopup() {
+            document.getElementById('month-popup').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
 
-function openMonthPopup() {
-    document.getElementById('month-popup').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
+        function closeMonthPopup() {
+            document.getElementById('month-popup').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
 
-function closeMonthPopup() {
-    document.getElementById('month-popup').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
+        function openMemoryPopup() {
+            document.getElementById('memory-popup').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
 
-function openMemoryPopup() {
-    document.getElementById('memory-popup').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
+        function closeMemoryPopup() {
+            document.getElementById('memory-popup').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
 
-function closeMemoryPopup() {
-    document.getElementById('memory-popup').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
+        let currentGalleryImages = [];
+        let currentImageIndex = 0;
 
-let currentGalleryImages = [];
-let currentImageIndex = 0;
+        // FIXED SCOPING GALLERY COLLECTOR
+        function collectGalleryImages() {
+            const monthPopup = document.getElementById('month-popup');
+            const memoryPopup = document.getElementById('memory-popup');
 
-function collectGalleryImages() {
-    currentGalleryImages = Array.from(document.querySelectorAll('.memory-card img')).map(img => img.src);
-}
+            if (monthPopup && monthPopup.style.display === 'block') {
+                // Collect images only within the currently active Month Wise Popup
+                currentGalleryImages = Array.from(monthPopup.querySelectorAll('.memory-card img')).map(img => img.src);
+            } else if (memoryPopup && memoryPopup.style.display === 'block') {
+                // Collect images only within the currently active Viha Memories Popup
+                currentGalleryImages = Array.from(memoryPopup.querySelectorAll('.memory-card img')).map(img => img.src);
+            } else {
+                // Fallback default
+                currentGalleryImages = Array.from(document.querySelectorAll('.memory-card img')).map(img => img.src);
+            }
+        }
 
-function openImageViewer(src) {
-    collectGalleryImages();
+        function openImageViewer(src) {
+            collectGalleryImages();
+            currentImageIndex = currentGalleryImages.indexOf(src);
+            document.getElementById('image-viewer').style.display = 'flex';
+            document.getElementById('viewer-img').src = src;
+            document.body.style.overflow = 'hidden';
+        }
 
-    currentImageIndex = currentGalleryImages.indexOf(src);
+        function closeImageViewer() {
+            document.getElementById('image-viewer').style.display = 'none';
+            // Only restore full overflow if popups are fully closed
+            const monthPopup = document.getElementById('month-popup');
+            const memoryPopup = document.getElementById('memory-popup');
+            if ((!monthPopup || monthPopup.style.display !== 'block') && (!memoryPopup || memoryPopup.style.display !== 'block')) {
+                document.body.style.overflow = 'auto';
+            }
+        }
 
-    document.getElementById('image-viewer').style.display = 'flex';
-    document.getElementById('viewer-img').src = src;
+        function nextImage() {
+            currentImageIndex++;
+            if(currentImageIndex >= currentGalleryImages.length) {
+                currentImageIndex = 0;
+            }
+            document.getElementById('viewer-img').src = currentGalleryImages[currentImageIndex];
+        }
 
-    document.body.style.overflow = 'hidden';
-}
+        function prevImage() {
+            currentImageIndex--;
+            if(currentImageIndex < 0) {
+                currentImageIndex = currentGalleryImages.length - 1;
+            }
+            document.getElementById('viewer-img').src = currentGalleryImages[currentImageIndex];
+        }
 
-function closeImageViewer() {
-    document.getElementById('image-viewer').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
+        /* MOBILE SWIPE SUPPORT */
+        let touchStartX = 0;
+        let touchEndX = 0;
 
-function nextImage() {
-    currentImageIndex++;
+        document.getElementById('image-viewer').addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
 
-    if(currentImageIndex >= currentGalleryImages.length) {
-        currentImageIndex = 0;
-    }
+        document.getElementById('image-viewer').addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if(touchStartX - touchEndX > 50) {
+                nextImage();
+            }
+            if(touchEndX - touchStartX > 50) {
+                prevImage();
+            }
+        });
 
-    document.getElementById('viewer-img').src = currentGalleryImages[currentImageIndex];
-}
+        function startVoiceGreeting() {
+            const voice = document.getElementById('welcome-voice');
+            voice.currentTime = 0;
+            voice.play().catch(() => {
+                console.log("Voice autoplay blocked until user interaction.");
+            });
+            document.getElementById('voice-popup').style.display = 'none';
+            if (typeof triggerConfettiBurst === "function") {
+                triggerConfettiBurst();
+            }
+            if (typeof girlBubble !== "undefined") {
+                setTimeout(() => {
+                    girlBubble.innerText = "Welcome to Viha's world! 🎀";
+                    girlBubble.classList.add('bubble-visible');
+                }, 1200);
+            }
+        }
 
-function prevImage() {
-    currentImageIndex--;
+        function openSurprise() {
+            document.getElementById('surprise-popup').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            if (typeof triggerConfettiBurst === "function") {
+                triggerConfettiBurst();
+            }
+        }
 
-    if(currentImageIndex < 0) {
-        currentImageIndex = currentGalleryImages.length - 1;
-    }
+        function closeSurprise() {
+            document.getElementById('surprise-popup').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
 
-    document.getElementById('viewer-img').src = currentGalleryImages[currentImageIndex];
-}
+        window.timelineMemories = [
+            {
+                title: "1 Month of Magic 🌙",
+                img: "./viha_web_photos/1_M.jpeg",
+                desc: "Our tiny moonbeam arrived and filled every corner of our home with warmth, wonder, and love."
+            },
+            {
+                title: "3 Months of Smiles 😊",
+                img: "./viha_web_photos/3_M.jpeg",
+                desc: "Tiny smiles turned into sweet giggles, and every day became brighter with Viha's happiness."
+            },
+            {
+                title: "6 Months of Sparkle 🎀",
+                img: "./viha_web_photos/6_M.jpeg",
+                desc: "Half a year of cuddles, curiosity, and the cutest expressions that made our hearts melt."
+            },
+            {
+                title: "9 Months of Joy 🧸",
+                img: "./viha_web_photos/9_M.jpeg",
+                desc: "A playful little star, exploring the world with sparkling eyes and endless energy."
+            },
+            {
+                title: "One Year of Love 🎂",
+                img: "./viha_web_photos/12_M.jpeg",
+                desc: "From tiny steps to big smiles, Viha's first year has been our most beautiful blessing."
+            }
+        ];
 
-/* MOBILE SWIPE SUPPORT */
-let touchStartX = 0;
-let touchEndX = 0;
+        window.openTimelineMemory = function(index) {
+            var memory = window.timelineMemories[index];
+            if (!memory) {
+                console.log("Timeline memory not found for index:", index);
+                return;
+            }
+            document.getElementById('timeline-popup-img').src = memory.img;
+            document.getElementById('timeline-popup-title').innerText = memory.title;
+            document.getElementById('timeline-popup-desc').innerText = memory.desc;
 
-document.getElementById('image-viewer').addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-});
+            document.getElementById('timeline-popup').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
 
-document.getElementById('image-viewer').addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
+            if (typeof triggerConfettiBurst === "function") {
+                triggerConfettiBurst();
+            }
+        };
 
-    if(touchStartX - touchEndX > 50) {
-        nextImage();
-    }
-
-    if(touchEndX - touchStartX > 50) {
-        prevImage();
-    }
-});
-
-function startVoiceGreeting() {
-    const voice = document.getElementById('welcome-voice');
-
-    voice.currentTime = 0;
-
-    voice.play().catch(() => {
-        console.log("Voice autoplay blocked until user interaction.");
-    });
-
-    document.getElementById('voice-popup').style.display = 'none';
-
-    if (typeof triggerConfettiBurst === "function") {
-        triggerConfettiBurst();
-    }
-
-    if (typeof girlBubble !== "undefined") {
-        setTimeout(() => {
-            girlBubble.innerText = "Welcome to Viha's world! 🎀";
-            girlBubble.classList.add('bubble-visible');
-        }, 1200);
-    }
-}
-
-function openSurprise() {
-    document.getElementById('surprise-popup').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-
-    if (typeof triggerConfettiBurst === "function") {
-        triggerConfettiBurst();
-    }
-}
-
-function closeSurprise() {
-    document.getElementById('surprise-popup').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-window.timelineMemories = [
-    {
-        title: "1 Month of Magic 🌙",
-        img: "./viha_web_photos/1_M.jpeg",
-        desc: "Our tiny moonbeam arrived and filled every corner of our home with warmth, wonder, and love."
-    },
-    {
-        title: "3 Months of Smiles 😊",
-        img: "./viha_web_photos/3_M.jpeg",
-        desc: "Tiny smiles turned into sweet giggles, and every day became brighter with Viha's happiness."
-    },
-    {
-        title: "6 Months of Sparkle 🎀",
-        img: "./viha_web_photos/6_M.jpeg",
-        desc: "Half a year of cuddles, curiosity, and the cutest expressions that made our hearts melt."
-    },
-    {
-        title: "9 Months of Joy 🧸",
-        img: "./viha_web_photos/9_M.jpeg",
-        desc: "A playful little star, exploring the world with sparkling eyes and endless energy."
-    },
-    {
-        title: "One Year of Love 🎂",
-        img: "./viha_web_photos/12_M.jpeg",
-        desc: "From tiny steps to big smiles, Viha's first year has been our most beautiful blessing."
-    }
-];
-
-window.openTimelineMemory = function(index) {
-    var memory = window.timelineMemories[index];
-
-    if (!memory) {
-        console.log("Timeline memory not found for index:", index);
-        return;
-    }
-
-    document.getElementById('timeline-popup-img').src = memory.img;
-    document.getElementById('timeline-popup-title').innerText = memory.title;
-    document.getElementById('timeline-popup-desc').innerText = memory.desc;
-
-    document.getElementById('timeline-popup').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-
-    if (typeof triggerConfettiBurst === "function") {
-        triggerConfettiBurst();
-    }
-};
-
-window.closeTimelineMemory = function() {
-    document.getElementById('timeline-popup').style.display = 'none';
-    document.body.style.overflow = 'auto';
-};
+        window.closeTimelineMemory = function() {
+            document.getElementById('timeline-popup').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        };
         
         initAmbientBubbles();
     </script>
 
-<!-- FULLSCREEN IMAGE VIEWER -->
 <div id="image-viewer">
-
     <button id="viewer-close" onclick="closeImageViewer()">×</button>
-
     <div class="viewer-controls">
         <button class="viewer-btn" onclick="prevImage()">❮</button>
         <button class="viewer-btn" onclick="nextImage()">❯</button>
     </div>
-
     <img id="viewer-img" src="">
 </div>
 
-<!-- VOICE GREETING POPUP -->
 <div id="voice-popup"
      style="
         position:fixed;
@@ -1812,17 +1764,14 @@ window.closeTimelineMemory = function() {
     </div>
 </div>
 
-<!-- VOICE AUDIO -->
 <audio id="welcome-voice" preload="auto">
     <source src="./viha_web_photos/AUD-20260512-WA0040.opus" type="audio/mpeg">
 </audio>
 
-<!-- SECRET SURPRISE BUTTON -->
 <button class="secret-surprise-btn" onclick="openSurprise()">
     🎁 Tap for Surprise
 </button>
 
-<!-- SECRET SURPRISE POPUP -->
 <div id="surprise-popup">
 
     <div class="surprise-card">
@@ -1844,60 +1793,5 @@ window.closeTimelineMemory = function() {
 
 </div>
 
-<script>
-window.timelineMemories = [
-    {
-        title: "1 Month of Magic 🌙",
-        img: "./viha_web_photos/1_M.jpeg",
-        desc: "Our tiny moonbeam arrived and filled every corner of our home with warmth, wonder, and love."
-    },
-    {
-        title: "3 Months of Smiles 😊",
-        img: "./viha_web_photos/3_M.jpeg",
-        desc: "Tiny smiles turned into sweet giggles, and every day became brighter with Viha's happiness."
-    },
-    {
-        title: "6 Months of Sparkle 🎀",
-        img: "./viha_web_photos/6_M.jpeg",
-        desc: "Half a year of cuddles, curiosity, and the cutest expressions that made our hearts melt."
-    },
-    {
-        title: "9 Months of Joy 🧸",
-        img: "./viha_web_photos/9_M.jpeg",
-        desc: "A playful little star, exploring the world with sparkling eyes and endless energy."
-    },
-    {
-        title: "One Year of Love 🎂",
-        img: "./viha_web_photos/12_M.jpeg",
-        desc: "From tiny steps to big smiles, Viha's first year has been our most beautiful blessing."
-    }
-];
-
-window.openTimelineMemory = function(index) {
-    var memory = window.timelineMemories[index];
-
-    if (!memory) {
-        alert("Timeline memory not found for index: " + index);
-        return;
-    }
-
-    document.getElementById('timeline-popup-img').src = memory.img;
-    document.getElementById('timeline-popup-title').innerText = memory.title;
-    document.getElementById('timeline-popup-desc').innerText = memory.desc;
-
-    document.getElementById('timeline-popup').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-
-    if (typeof triggerConfettiBurst === "function") {
-        triggerConfettiBurst();
-    }
-};
-
-window.closeTimelineMemory = function() {
-    document.getElementById('timeline-popup').style.display = 'none';
-    document.body.style.overflow = 'auto';
-};
-</script>
-    
 </body>
 </html>
