@@ -658,12 +658,16 @@
     margin-top:6px;
 }
 
+/* TIMELINE POPUP FIX */
 #timeline-popup {
     display:none;
     position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.85);
-    z-index:999999;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.88);
+    z-index:99999999;
     align-items:center;
     justify-content:center;
     padding:20px;
@@ -702,6 +706,7 @@
     font-size:1.5rem;
     font-weight:bold;
     cursor:pointer;
+    z-index:2;
 }
         
     </style>
@@ -1714,11 +1719,16 @@ const timelineMemories = [
 function openTimelineMemory(index) {
     const memory = timelineMemories[index];
 
-    document.getElementById('timeline-popup-img').src = memory.img;
-    document.getElementById('timeline-popup-title').innerText = memory.title;
-    document.getElementById('timeline-popup-desc').innerText = memory.desc;
+    const popup = document.getElementById('timeline-popup');
+    const img = document.getElementById('timeline-popup-img');
+    const title = document.getElementById('timeline-popup-title');
+    const desc = document.getElementById('timeline-popup-desc');
 
-    document.getElementById('timeline-popup').style.display = 'flex';
+    img.src = memory.img;
+    title.innerText = memory.title;
+    desc.innerText = memory.desc;
+
+    popup.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 
     if (typeof triggerConfettiBurst === "function") {
