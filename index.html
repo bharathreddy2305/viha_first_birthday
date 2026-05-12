@@ -1393,6 +1393,29 @@ document.getElementById('image-viewer').addEventListener('touchend', e => {
         prevImage();
     }
 });
+
+function startVoiceGreeting() {
+    const voice = document.getElementById('welcome-voice');
+
+    voice.currentTime = 0;
+
+    voice.play().catch(() => {
+        console.log("Voice autoplay blocked until user interaction.");
+    });
+
+    document.getElementById('voice-popup').style.display = 'none';
+
+    if (typeof triggerConfettiBurst === "function") {
+        triggerConfettiBurst();
+    }
+
+    if (typeof girlBubble !== "undefined") {
+        setTimeout(() => {
+            girlBubble.innerText = "Welcome to Viha's world! 🎀";
+            girlBubble.classList.add('bubble-visible');
+        }, 1200);
+    }
+}
         
         initAmbientBubbles();
     </script>
@@ -1409,6 +1432,66 @@ document.getElementById('image-viewer').addEventListener('touchend', e => {
 
     <img id="viewer-img" src="">
 </div>
+
+<!-- VOICE GREETING POPUP -->
+<div id="voice-popup"
+     style="
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,0.72);
+        z-index:9999999;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        backdrop-filter:blur(8px);
+        padding:20px;
+    ">
+
+    <div style="
+        background:white;
+        padding:35px 25px;
+        border-radius:28px;
+        text-align:center;
+        max-width:360px;
+        width:90%;
+        box-shadow:0 15px 45px rgba(0,0,0,0.25);
+        border:1px solid rgba(255,255,255,0.5);
+    ">
+
+        <div style="font-size:3rem; margin-bottom:10px;">🎀</div>
+
+        <h2 style="
+            font-family:'Great Vibes';
+            font-size:2.8rem;
+            color:#e09893;
+            margin:0 0 10px 0;
+        ">
+            Welcome
+        </h2>
+
+        <p style="
+            font-family:'Quicksand';
+            color:#666;
+            line-height:1.6;
+            margin-bottom:25px;
+            font-size:0.95rem;
+        ">
+            Tap below to enter Viha's magical birthday world ✨
+        </p>
+
+        <button onclick="startVoiceGreeting()"
+                class="btn-premium"
+                style="border-radius:40px; width:auto; padding:13px 24px;">
+            🎵 Enter Celebration
+        </button>
+
+    </div>
+</div>
+
+<!-- VOICE AUDIO -->
+<audio id="welcome-voice" preload="auto">
+    <source src="./viha_web_photos/AUD-20260512-WA0040.opus" type="audio/mpeg">
+</audio>
     
 </body>
 </html>
