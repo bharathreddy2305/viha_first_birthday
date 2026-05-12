@@ -837,7 +837,7 @@
 
     <audio id="welcome-voice" preload="auto">
         <source src="./viha_web_photos/AUD-20260512-WA0040.opus" type="audio/ogg; codecs=opus">
-        <source src="./viha_web_photos/AUD-20260512-WA0040.mp3" type="audio/mpeg"> </audio>
+    </audio>
 
     <button class="secret-surprise-btn" onclick="openSurprise()">🎁 Tap for Surprise</button>
 
@@ -1137,26 +1137,28 @@
             if(touchEndX - touchStartX > 50) { prevImage(); }
         });
 
-        // --- UPDATED FAIL-SAFE GREETING TRIGGER ---
+        // --- FIXED FAIL-SAFE GREETING TRIGGER ---
         function startVoiceGreeting() {
-            const voice = document.getElementById('welcome-voice');
             const voicePopup = document.getElementById('voice-popup');
+            const voice = document.getElementById('welcome-voice');
             const girlBubble = document.getElementById('girl-bubble');
 
-            // 1. Instantly hide popup first to guarantee user flow never stalls
+            // 1. Instantly hide the overlay screen to guarantee the site opens immediately
             if (voicePopup) {
                 voicePopup.style.display = 'none';
             }
 
-            // 2. Safely attempt to trigger audio stream without catching promise rejections
-            if (voice) {
-                voice.currentTime = 0;
-                const playPromise = voice.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(err => {
-                        console.warn("Audio skipped safely pipeline:", err);
-                    });
+            // 2. Wrap audio in a clean Try/Catch block to silently bypass codec crashes on phones
+            try {
+                if (voice) {
+                    voice.currentTime = 0;
+                    const playPromise = voice.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(e => { console.warn("Audio safely suppressed by browser policy."); });
+                    }
                 }
+            } catch (err) {
+                console.warn("Audio tag loading bypassed gracefully.");
             }
 
             // 3. Complete visual loading pipeline
