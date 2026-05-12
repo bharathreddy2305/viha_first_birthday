@@ -519,6 +519,77 @@
     cursor:pointer;
     font-weight:bold;
 }
+
+/* SECRET SURPRISE BUTTON */
+.secret-surprise-btn {
+    position:fixed;
+    bottom:90px;
+    left:25px;
+    z-index:9999;
+    background:linear-gradient(135deg,#f7b7b2,#f3d7a4);
+    color:white;
+    border:none;
+    border-radius:50px;
+    padding:13px 20px;
+    font-family:'Quicksand';
+    font-weight:700;
+    font-size:0.9rem;
+    box-shadow:0 10px 25px rgba(224,152,147,0.35);
+    cursor:pointer;
+    animation:surprisePulse 2s infinite;
+}
+
+@keyframes surprisePulse {
+    0% { transform:scale(1); }
+    50% { transform:scale(1.07); }
+    100% { transform:scale(1); }
+}
+
+#surprise-popup {
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.82);
+    z-index:999999;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    backdrop-filter:blur(8px);
+}
+
+.surprise-card {
+    background:white;
+    border-radius:30px;
+    padding:25px;
+    max-width:380px;
+    width:92%;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,0.25);
+    position:relative;
+}
+
+.surprise-card img {
+    width:100%;
+    max-height:360px;
+    object-fit:contain;
+    border-radius:22px;
+    margin-bottom:18px;
+    background:#fff7f7;
+}
+
+.surprise-close {
+    position:absolute;
+    top:-18px;
+    right:-10px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:none;
+    background:white;
+    font-size:1.5rem;
+    font-weight:bold;
+    cursor:pointer;
+}
         
     </style>
     
@@ -1416,6 +1487,20 @@ function startVoiceGreeting() {
         }, 1200);
     }
 }
+
+function openSurprise() {
+    document.getElementById('surprise-popup').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    if (typeof triggerConfettiBurst === "function") {
+        triggerConfettiBurst();
+    }
+}
+
+function closeSurprise() {
+    document.getElementById('surprise-popup').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
         
         initAmbientBubbles();
     </script>
@@ -1492,6 +1577,33 @@ function startVoiceGreeting() {
 <audio id="welcome-voice" preload="auto">
     <source src="./viha_web_photos/AUD-20260512-WA0040.opus" type="audio/mpeg">
 </audio>
+
+<!-- SECRET SURPRISE BUTTON -->
+<button class="secret-surprise-btn" onclick="openSurprise()">
+    🎁 Tap for Surprise
+</button>
+
+<!-- SECRET SURPRISE POPUP -->
+<div id="surprise-popup">
+
+    <div class="surprise-card">
+
+        <button class="surprise-close" onclick="closeSurprise()">×</button>
+
+        <img src="./viha_web_photos/surprise.jpeg" alt="Viha Surprise Photo">
+
+        <h2 style="font-family:'Great Vibes'; font-size:2.7rem; color:#e09893; margin:0 0 10px;">
+            A Little Surprise ✨
+        </h2>
+
+        <p style="font-family:'Quicksand'; color:#666; line-height:1.7; font-size:0.95rem;">
+            One tiny smile, one little giggle, and the whole world becomes brighter. 
+            Viha, you are our sweetest blessing.
+        </p>
+
+    </div>
+
+</div>
     
 </body>
 </html>
